@@ -1,0 +1,26 @@
+[
+    {
+        "name": "Admin",
+        "email": "admin@admin.com",
+        "password": "admin",
+        "isAdministrator": "true"
+    },
+    {
+        "name": "Anne",
+        "email": "a@a.com",
+        "password": "aaa",
+        "isAdministrator": "false"
+    },
+    {
+        "name": "Brian",
+        "email": "b@b.com",
+        "password": "bbb",
+        "isAdministrator": "false"
+    },
+    {
+        "name": "Colm",
+        "email": "c@c.com",
+        "password": "ccc",
+        "isAdministrator": "false"
+    }
+]

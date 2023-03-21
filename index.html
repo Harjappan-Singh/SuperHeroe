@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Superheros</title>
+    <link rel="shortcut icon" href="superhero.png" type="image/x-icon">
+    <link rel="stylesheet" href="form.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,500;0,700;1,200&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@200;300;400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body onload="displayHero(superHeroes)">
+    <div id="formBodyContainer">
+        <!-- form -->
+        <div id="formContainer">
+            <!-- add a logo to the form -->
+            <div class="logo"><img src="superhero.png" alt="super hero image"></div>
+            <div class="login">
+                <h1>Log In</h1>
+                <div>Please login to access Superheros</div>
+                <div id="invalidData">Invalid details entered!!</div>
+            </div>
+            <form action="" id="userData">
+                <div class="data-item">
+                    <!-- added google icons and used them as labels so that user can click and enter details -->
+                    <label for="email"><span class="icon material-symbols-rounded"> mail </span></label>
+                    <input type="email" name="email" id="email" required placeholder="Enter your Email">
+                </div>
+                <div class="data-item">
+                    <label for="pwd"><span class="icon material-symbols-rounded">lock</span></label>
+                    <input type="password" name="password" id="pwd" required placeholder="Enter your Password">
+                </div>
+
+
+                <button type="submit" onclick="return validateData()" id="logInBtn">Log In</button>
+
+            </form>
+
+        </div>
+    </div>
+
+
+
+
+    <!-- data table -->
+    <div id="dataContainer">
+        <header>
+            <h2 id="logo">SUPERHEROES</h2>
+            <img src="superhero2.png" alt="hero image">
+            <nav>
+                <div class="nav-item" id=addHeroButton>
+                    <button id="openModal">Add Hero</button>
+                </div>
+
+                <div class="nav-item">
+                    <span class="material-symbols-rounded search_icon"> search</span>
+                    <div id="searchBtn"><input type="text" name="search" id="searchValue" placeholder="Search Hero"
+                            onkeyup="displayWithSearch(this.value)"> </div>
+                </div>
+                <div class="nav-item" id=viewUsersButton>
+                    <button onclick="displayUsers(usersData)" id="viewUsers">View Users</button>
+                </div>
+            </nav>
+        </header>
+
+        <!-- add hereo -->
+        <dialog id="addHeroFormModal">
+            <div id="addHero">
+                <label for="addAlign">Select Align</label>
+                <select name="" id="addAlign">
+                    <option value="none"> ---- Select Align ----</option>
+                    <option value="good charactes">good </option>
+                    <option value="neutral characters">neutral </option>
+                    <option value="bad characters">bad </option>
+                </select>
+                <br>
+                <label for="addAlive">Select Alive</label>
+                <select name="" id="addAlive">
+                    <option value="none"> ---- Select ----</option>
+                    <option value="living characters">living </option>
+                    <option value="deceased characters">deceased </option>
+                </select>
+                <br>
+                <label for="addAppearances">Enter Appearance: </label>
+                <input type="text" placeholder="e.g. 107" id="addAppearances"><br>
+
+
+                <label for="addEye">Select Eye</label>
+                <select name="" id="addEye">
+                    <option value="none"> ---- Select ----</option>
+                    <option value="blue eyes">blue</option>
+                    <option value="brown eyes">brown</option>
+                    <option value="green eyes">green</option>
+                    <option value="purple eyes">purple</option>
+                    <option value="black eyes">black</option>
+                    <option value="blue eyes">blue</option>
+                    <option value="white eyes">white</option>
+                    <option value="red eyes">red</option>
+                </select>
+                <br>
+                <label for="addFirstAppearances">Enter First Appearance: </label>
+                <input type="text" placeholder="first appearance" id="addFirstAppearances"><br>
+
+
+                <label for="addHair">Select Hair: </label>
+                <select name="hair" id="addHair">
+                    <option value="none"> ---- Select ----</option>
+                    <option value="black">black</option>
+                    <option value="white hair">white</option>
+                    <option value="brown hair">brown</option>
+                    <option value="blond hair">blond</option>
+                    <option value="red hair">red</option>
+                    <option value="green hair">green</option>
+                    <option value="white hair">white</option>
+                    <option value="red hair">red</option>
+                </select>
+                <br>
+
+                <label for="addID">Select ID: </label>
+                <select name="" id="addID"">
+                    <option value=" none"> ---- Select ----</option>
+                    <option value="public identity">Public</option>
+                    <option value="secret identity">Secret</option>
+                </select>
+                <br>
+
+                <label for="addName">Enter Name: </label>
+                <input type="text" placeholder="e.g. iron man" id="addName"><br>
+
+                <label for="addPageID">Enter Page ID: </label>
+                <input type="number" placeholder="e.g 3049" id="addPageID"><br>
+                <label for="addSex">Select sex:</label>
+                <select name="sex" id="addSex">
+                    <option value="none"> ---- Select ----</option>
+                    <option value="male characters">Male</option>
+                    <option value="female characters">Female</option>
+                </select>
+                <br>
+                <label for="addURL">Enter URL: </label>
+                <input type="text" placeholder="e.g \/wiki\/iron_man" id="addURL"><br>
+                <label for="addYear">Enter Year</label>
+                <input type="number" placeholder="1999" id="addYear"><br>
+
+                <button
+                    onclick="return addHero(document.getElementById('addAlign').value,
+                document.getElementById('addAlive').value,document.getElementById('addAppearances').value,
+                document.getElementById('addEye').value,document.getElementById('addFirstAppearances').value,
+                document.getElementById('addHair').value,document.getElementById('addID').value,
+                document.getElementById('addName').value,document.getElementById('addPageID').value,
+                document.getElementById('addSex').value,document.getElementById('addURL').value,document.getElementById('addYear').value,)">Add
+                    hero</button>
+            </div>
+        </dialog>
+
+        <!-- view users modal -->
+        <div id="viewUserData"></div>
+        <dialog id="addUserModal">
+            <label for="userName">Enter Name </label>
+            <input type="text" placeholder="walter" id="userName"><br>
+            <label for="userEmail">Enter Email </label>
+            <input type="email" placeholder="walter@karipo.com" id="userEmail"><br>
+            <label for="password">Enter password </label>
+            <input type="password" placeholder="password" id="password"><br>
+            <label for="isAdmin">Is Admin? </label>
+            <select name="" id="isAdmin">
+                <option value="none"> ---- Select ----</option>
+                <option value="true">Yes </option>
+                <option value="false">No </option>
+            </select>
+            <button
+                onclick="addTheUser(document.getElementById('userName').value, document.getElementById('password').value, document.getElementById('userEmail').value, document.getElementById('isAdmin').value)">Add
+                user</button>
+        </dialog>
+
+
+        <!-- modify modal -->
+        <dialog id="modifyHeroFormModal">
+            <div id="modifyHero">
+                <label for="modifyAlign">Select Align</label>
+                <select name="" id="modifyAlign">
+                    <option value="none"> ---- Select Align ----</option>
+                    <option value="good characters">good </option>
+                    <option value="neutral characters">neutral </option>
+                    <option value="bad characters">bad </option>
+                </select>
+                <br>
+                <label for="modifyAlive">Select Alive</label>
+                <select name="" id="modifyAlive">
+                    <option value="none"> ---- Select ----</option>
+                    <option value="living characters">living </option>
+                    <option value="deceased characters">deceased </option>
+                </select>
+                <br>
+                <label for="modifyAppearances">Enter Appearance: </label>
+                <input type="number" placeholder="e.g. 107" id="modifyAppearances"><br>
+
+
+                <label for="modifyEye">Select Eye</label>
+                <select name="" id="modifyEye">
+                    <option value="none"> ---- Select ----</option>
+                    <option value="blue eyes">blue</option>
+                    <option value="brown eyes">brown</option>
+                    <option value="green eyes">green</option>
+                    <option value="purple eyes">purple</option>
+                    <option value="black eyes">black</option>
+                    <option value="blue eyes">blue</option>
+                    <option value="white eyes">white</option>
+                    <option value="red eyes">red</option>
+                </select>
+                <br>
+                <label for="modifyFirstAppearances">Enter First Appearance: </label>
+                <input type="text" placeholder="e.g. 1959, april" id="modifyFirstAppearances"><br>
+
+
+                <label for="modifyHair">Select Hair: </label>
+                <select name="hair" id="modifyHair">
+                    <option value="none"> ---- Select ----</option>
+                    <option value="black hair">black</option>
+                    <option value="white hair">white</option>
+                    <option value="brown hair">brown</option>
+                    <option value="blond hair">blond</option>
+                    <option value="red hair">red</option>
+                    <option value="green hair">green</option>
+                    <option value="white hair">white</option>
+                    <option value="red hair">red</option>
+                </select>
+                <br>
+
+                <label for="modifyID">Select ID: </label>
+                <select name="" id="modifyID"">
+            <option value=" none"> ---- Select ----</option>
+                    <option value="public identity">Public</option>
+                    <option value="secret identity">Secret</option>
+                </select>
+                <br>
+
+                <label for="modifyName">Enter Name: </label>
+                <input type="text" placeholder="e.g. iron man" id="modifyName"><br>
+
+                <label for="modifyPageID">Enter Page ID: </label>
+                <input type="number" placeholder="e.g 3456" id="modifyPageID"><br>
+                <label for="modifySex">Select sex:</label>
+                <select name="sex" id="modifySex">
+                    <option value="none"> ---- Select ----</option>
+                    <option value="male characters">Male</option>
+                    <option value="female characters">Female</option>
+                </select>
+                <br>
+                <label for="modifyURL">Enter URL: </label>
+                <input type="text" placeholder="e.g \/wiki\/iron_man" id="modifyURL"><br>
+
+                <label for="modifyYear">Enter Year</label>
+                <input type="number" placeholder="e.g 1999" id="modifyYear"><br>
+
+                <button onclick="modifyHero(document.getElementById('modifyAlign').value,
+                document.getElementById('modifyAlive').value,document.getElementById('modifyAppearances').value,
+                document.getElementById('modifyEye').value,document.getElementById('modifyFirstAppearances').value,
+                document.getElementById('modifyHair').value,document.getElementById('modifyID').value,
+                document.getElementById('modifyName').value,document.getElementById('modifyPageID').value,
+                document.getElementById('modifySex').value,document.getElementById('modifyURL').value,document.getElementById('modifyYear').value
+                )">Modify Hero</button>
+            </div>
+        </dialog>
+        <div id="data">data</div>
+
+
+    </div>
+
+
+
+    <!-- add form -->
+    <!-- "align", "alive", "eye", "hair", "id" and "sex" -->
+
+
+    <script src=" form.js"></script>
+    <script src="script.js"></script>
+
+</body>
+
+</html>

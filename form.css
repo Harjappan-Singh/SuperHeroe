@@ -1,0 +1,164 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Quicksand', sans-serif;
+}
+
+#formBodyContainer {
+    font-family: 'Noto Sans', sans-serif;
+    height: 100vh;
+    /* vh is viewport's height, i.e full height of the device it is opened in */
+    /* background: #04AA6D; */
+    background: url("https://picstatio.com/large/dc508d/justice-league-superheroes-artwork-4k-8k.jpg") center;
+    background-size: cover;
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+    /*for cross axis (colum by default)*/
+    justify-content: center;
+    /* for main axis (row by default)*/
+
+}
+
+
+
+#formContainer {
+    width: 450px;
+    background-color: rgb(255, 255, 255, 0.8);
+    padding: 4rem;
+    /* rem is relative to universal element*/
+    border-radius: 40px;
+    position: relative;
+    /* using relative positon I can offest left right etc */
+}
+
+@keyframes updown {
+    0% {
+        transform: translateY(-25%);
+    }
+
+    50% {
+        transform: translateY(25%);
+    }
+
+    100% {
+        transform: translateY(-25%);
+    }
+}
+
+
+.logo,
+.login,
+#invalidData {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.logo img {
+    width: 150px;
+    animation: updown 2s ease infinite;
+}
+
+.login h1 {
+    margin-bottom: 1.5rem;
+    font-size: 2.5rem;
+}
+
+#invalidData {
+    color: red;
+    font-size: 1.3rem;
+}
+
+#userData {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+#userData .data-item {
+    position: relative;
+}
+
+#userData .data-item .icon {
+    position: absolute;
+    /* absolute to set onset with respect to data-item */
+    top: 0.8rem;
+    left: 1.5rem;
+    font-size: 1.3rem;
+    opacity: 0.7;
+}
+
+.data-item #email,
+.data-item #pwd {
+    border: none;
+    outline: none;
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 1rem 1.5rem;
+    padding-left: calc(1rem*3.5);
+    border-radius: 100px;
+    width: 100%;
+    transition: background 0.4s;
+}
+
+
+
+#userData button {
+    background-image: linear-gradient(to right, #085078 0%, #85D8CE 51%, #085078 100%);
+    color: white;
+    padding: 1rem;
+    width: 100%;
+    border: none;
+    border-radius: 100px;
+    box-shadow: 0 0 20px #eee;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: 0.4s;
+    transform: translateX(0.1rem);
+    margin-top: 1em;
+    transition: 0.5s;
+    background-size: 200% auto;
+    cursor: pointer;
+}
+
+#userData button:hover {
+    background-position: right center;
+    color: #fff;
+    text-decoration: none;
+}
+
+#invalidData {
+    display: none;
+    background-color: #c4aaaa;
+    border-radius: 4px;
+    padding: 8px;
+    margin-top: 1.2em;
+}
+
+
+/* adding responsiveness */
+@media (max-width: 1000px) {
+    #formBodyContainer {
+        padding: 2rem 0;
+    }
+
+    .logo img {
+        width: 100px;
+    }
+
+    .login h1 {
+        font-size: 2rem;
+    }
+
+    #invalidData {
+        font-size: 1rem;
+    }
+
+    #formContainer {
+        width: 300px;
+        padding: 2rem;
+    }
+}
+
+/* https://www.youtube.com/watch?v=B6e4Fg_-CXY        - form styling */
+/* https://www.youtube.com/watch?v=zWB219zf1og        - adding slight transition */

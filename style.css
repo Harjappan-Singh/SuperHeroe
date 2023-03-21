@@ -1,0 +1,315 @@
+/* make superhero icon bigger and put it in the center
+give a heading in the navbar (extreme left)
+give an icon in search bar
+heading in the modal 
+
+*/
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Quicksand', sans-serif;
+}
+
+body {
+    background: url("https://picstatio.com/large/dc508d/justice-league-superheroes-artwork-4k-8k.jpg") center no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+
+
+/* inpdependent learning: added slight transition */
+@keyframes transitionIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes right_left {
+    0% {
+        transform: translateX(-200%);
+    }
+
+    50% {
+        transform: translateX(300%);
+    }
+
+    100% {
+        transform: translateX(-200%);
+    }
+}
+
+/* #dataContainer {} */
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    min-width: 100vh;
+    margin-bottom: 3em;
+    padding-bottom: 1.5em;
+    background-color: #2a5e79;
+}
+
+nav {
+    flex: 1;
+    max-width: 50%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+img {
+    width: 4.5rem;
+    animation: right_left 4s ease infinite;
+}
+
+table {
+    border-collapse: collapse;
+    min-width: 100vh;
+    margin-right: auto;
+    margin-left: auto;
+    background: white;
+    opacity: 80%;
+}
+
+#logo {
+    cursor: pointer;
+    color: white;
+}
+
+#searchBtn input {
+    border: none;
+    outline: none;
+    background-color: #a4cbdf;
+    color: white;
+    padding: 1rem 1rem;
+    padding-left: calc(1rem*3.5);
+    border-radius: 100px;
+    margin: 0 1rem;
+}
+
+.nav-item .search_icon {
+    position: relative;
+    top: 2.5rem;
+    left: 2.3rem;
+    font-size: 1.4rem;
+    opacity: 0.7;
+}
+
+
+
+button {
+    background-image: linear-gradient(to right, rgb(8, 80, 120) 0%, #85D8CE 51%, #085078 100%);
+    color: white;
+    padding: 1rem;
+    width: 100%;
+    border: none;
+    border-radius: 100px;
+    box-shadow: 0 0 20px #eee;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: 0.4s;
+    transform: translateX(-1rem);
+    transition: 0.5s;
+    background-size: 200% auto;
+    cursor: pointer;
+}
+
+#addHeroButton,
+#viewUsersButton {
+    transform: translateY(1em);
+}
+
+button:hover {
+    background-position: right center;
+    color: #fff;
+    text-decoration: none;
+}
+
+input {
+    font-size: 1em;
+}
+
+
+
+tr,
+th,
+td {
+    text-align: center;
+    width: 1rem;
+    font-size: 1rem;
+}
+
+th {
+    padding-bottom: 3.5rem;
+    padding-top: 3.5rem;
+}
+
+td {
+    padding: 0.75rem;
+    padding-bottom: 0rem;
+
+}
+
+th select {
+    border: none;
+    outline: none;
+    color: #04AA6D;
+    background-color: ghostwhite;
+    border-radius: 10px;
+    width: 1.5rem;
+    content: none;
+}
+
+tr a {
+    color: inherit;
+    font-weight: 800;
+    font-style: italic;
+    text-decoration: none;
+}
+
+tr a:hover {
+    text-decoration: 2px underline;
+}
+
+thead tr {
+    color: white;
+    background-color: #085078;
+}
+
+tbody tr:nth-child(even) {
+    color: #085078;
+    background-color: #85d8ce99;
+}
+
+/* tbody tr:nth-child(odd) {
+    color: rgb(43, 42, 42);
+    background-color: rgba(133, 216, 206, 0.6);
+} */
+
+tbody tr:nth-child(even):hover,
+tbody tr:nth-child(odd):hover {
+    color: white;
+    background-color: #085078;
+    transition: 0.4s;
+}
+
+
+
+
+.delete,
+.modify {
+    display: inline;
+    padding: 0.5rem;
+    margin: 0.5rem;
+}
+
+.delete,
+#deleteUser {
+    background-image: linear-gradient(to right, #f44336 0%, rgb(172, 172, 154) 51%, #f44336 100%);
+}
+
+
+.modify {
+    background-image: linear-gradient(to right, black 0%, rgb(172, 171, 155) 51%, #085078 100%);
+}
+
+#addHeroFormModal,
+#modifyHeroFormModal,
+#addUserModal {
+    position: sticky;
+    margin: 0 auto;
+    padding: 4em;
+    border-radius: 10px;
+    border-color: #dbd2d2;
+    background: linear-gradient(to right, #085078 0%, #6cada6 51%, #085078 100%);
+    font-size: 1.2em;
+    line-height: 2em;
+    color: white;
+    box-shadow: 10px 10px 10px rgb(0 0 0 / 0.8);
+}
+
+#addHero select,
+#modifyHero select,
+#addUserModal select {
+    width: 1rem;
+    border-radius: 50%;
+    font-size: 1rem;
+}
+
+#addHero label,
+#modifyHero label,
+#addUserModal label {
+    font-style: italic;
+    font-weight: bold;
+    /* margin-right: ; */
+}
+
+#addHero input,
+#modifyHero input,
+#addUserModal input {
+    font-size: 1rem;
+    border-radius: 1em;
+    border: 1px solid white;
+    padding: 0.3rem;
+}
+
+#addHero button,
+#modifyHero button {
+    position: relative;
+    left: 9em;
+    top: 2em;
+    width: 10rem;
+}
+
+#addUserModal button {
+    position: relative;
+    top: 1em;
+}
+
+#addHeroFormModal::backdrop,
+#modifyHeroFormModal::backdrop,
+#addUserModal::backdrop {
+    background: linear-gradient(to right, #085078, #6cada6);
+    opacity: 0.7;
+}
+
+@media(max-width: 1300px) {
+    table .responsive2 {
+        display: none;
+    }
+
+    img {
+        animation: none;
+    }
+}
+
+
+@media(max-width: 1100px) {
+
+
+    table .responsive {
+        display: none;
+    }
+
+    header,
+    header nav {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 768px) {}
